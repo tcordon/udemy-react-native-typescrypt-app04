@@ -2,13 +2,16 @@ import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScroll
 import { Image, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
 
 import { Pagina1Screen } from '../screens/Pagina1Screen';
+import { Pagina2Screen } from '../screens/Pagina2Screen';
+import { Pagina3Screen } from '../screens/Pagina3Screen';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { globalStyles } from '../theme/appTheme';
+import { BottomTabsStackNavigation } from './BottomTabsStackNavigation';
 
 const Drawer = createDrawerNavigator();
 const LeftDrawer = createDrawerNavigator();
 
-const LeftDrawerScreen = () => {
+export const LateralMenuStackNavigation = () => {
   const { width } = useWindowDimensions()
 
   return (
@@ -21,7 +24,7 @@ const LeftDrawerScreen = () => {
       }
       drawerContent={ (props) => <MenuLeftDrawerContentBuilder {...props} /> }
       >
-      <LeftDrawer.Screen options={{ title: 'Home' }} name="Pagina1Screen" component={Pagina1Screen} />
+      <LeftDrawer.Screen options={{ title: 'Tabs' }} name="BottomTabsStackNavigation" component={BottomTabsStackNavigation} />
       <LeftDrawer.Screen options={{ title: 'Settings' }} name="SettingsScreen" component={SettingsScreen} />
     </LeftDrawer.Navigator>
   )
@@ -43,24 +46,28 @@ const MenuLeftDrawerContentBuilder = ( props: DrawerContentComponentProps ) => {
 
       {/* Opciones de Menu */}
       <View style={globalStyles.menuContainer}>
+          { /* Opción 1 - Home / Screen 1 / Stack de Screens o Tabs */}
           <TouchableOpacity
             style={globalStyles.menuBoton}
-            onPress={ () => { navigation.navigate('Pagina1Screen') }}
+            onPress={ () => { navigation.navigate('BottomTabsStackNavigation') }}
           >
             <Text style={globalStyles.menuTexto} >Navegacion</Text>
           </TouchableOpacity>
+
+          { /* Opción 2 - Settings */}
           <TouchableOpacity
             style={globalStyles.menuBoton}
             onPress={ () => { navigation.navigate('SettingsScreen') }}
           >
             <Text style={globalStyles.menuTexto}>Settings</Text>
           </TouchableOpacity>
+
       </View>
     </DrawerContentScrollView>
   )
 
 }
-export const LateralMenuStackNavigation = () => {
+export const LateralMenuStackNavigationRight = () => {
   return (
     <>
       <Drawer.Navigator
@@ -69,7 +76,9 @@ export const LateralMenuStackNavigation = () => {
           headerShown: false
         }}
       >
-        <Drawer.Screen name="LeftDrawerScreen" component={LeftDrawerScreen} />
+        <Drawer.Screen name="Pagina1Screen" component={Pagina1Screen} />
+        <Drawer.Screen name="Pagina2Screen" component={Pagina2Screen} />
+        <Drawer.Screen name="Pagina3Screen" component={Pagina3Screen} />
       </Drawer.Navigator>
     </>
   );
