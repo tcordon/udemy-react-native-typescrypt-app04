@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Button, Text, TouchableOpacity, View } from 'react-native'
 import { DrawerNavigationProp, DrawerScreenProps } from '@react-navigation/drawer'
-import { MainStackNavigation } from '../navigation/MainStackNavigation'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import { globalStyles } from '../theme/appTheme'
 
@@ -10,7 +10,7 @@ interface iProps extends DrawerScreenProps<any, any>{}
 export const Pagina1Screen = ({ navigation }: iProps) => {
 
   const parent:DrawerNavigationProp<any, any, any> = navigation.getParent()
-
+/*
   useEffect(() => {
     navigation.setOptions({
       headerRight: () => (
@@ -22,7 +22,7 @@ export const Pagina1Screen = ({ navigation }: iProps) => {
     })
 
   }, [])
-
+*/
 
   return (
     <View style={globalStyles.globalMargin}>
@@ -45,7 +45,7 @@ export const Pagina1Screen = ({ navigation }: iProps) => {
             nombre: 'Pedro'
           })}
         >
-          <Text style={globalStyles.botonGrandeTexto}>Pedro</Text>
+          <Text style={globalStyles.botonGrandeTexto}><Icon name='people' /> Pedro</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -55,7 +55,7 @@ export const Pagina1Screen = ({ navigation }: iProps) => {
             nombre: 'Maria'
           })}
         >
-          <Text style={globalStyles.botonGrandeTexto}>Maria</Text>
+          <Text style={globalStyles.botonGrandeTexto}><Icon name='cloud-download' /> Maria</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -65,7 +65,7 @@ export const Pagina1Screen = ({ navigation }: iProps) => {
             nombre: 'Fernando'
           })}
         >
-          <Text style={globalStyles.botonGrandeTexto}>Fernando</Text>
+          <Text style={globalStyles.botonGrandeTexto}><Icon name='earth' /> Fernando</Text>
         </TouchableOpacity>
       </View>
     </View>

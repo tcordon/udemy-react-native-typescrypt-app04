@@ -33,12 +33,15 @@ export const globalStyles = StyleSheet.create({
   },
   menuContainer: {
     marginVertical: 30,
-    marginHorizontal: 50,
+    marginHorizontal: 30,
   },
   menuBoton: {
-    marginVertical: 10
+    marginVertical: 10,
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   menuTexto: {
-    fontSize: 20
+    fontSize: 30,
+    paddingLeft: 10
   }
 })

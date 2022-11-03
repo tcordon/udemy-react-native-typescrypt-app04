@@ -1,5 +1,6 @@
 import { createDrawerNavigator, DrawerContentComponentProps, DrawerContentScrollView } from '@react-navigation/drawer';
 import { Image, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import { Pagina1Screen } from '../screens/Pagina1Screen';
 import { Pagina2Screen } from '../screens/Pagina2Screen';
@@ -19,7 +20,8 @@ export const LateralMenuStackNavigation = () => {
       screenOptions={
         {
           drawerPosition: 'left' ,
-          drawerType: width > 767 ? 'permanent' : 'front'
+          drawerType: width > 767 ? 'permanent' : 'front',
+          headerShown: false
         }
       }
       drawerContent={ (props) => <MenuLeftDrawerContentBuilder {...props} /> }
@@ -51,6 +53,7 @@ const MenuLeftDrawerContentBuilder = ( props: DrawerContentComponentProps ) => {
             style={globalStyles.menuBoton}
             onPress={ () => { navigation.navigate('BottomTabsStackNavigation') }}
           >
+            <Icon name='navigate' size={30} />
             <Text style={globalStyles.menuTexto} >Navegacion</Text>
           </TouchableOpacity>
 
@@ -59,6 +62,7 @@ const MenuLeftDrawerContentBuilder = ( props: DrawerContentComponentProps ) => {
             style={globalStyles.menuBoton}
             onPress={ () => { navigation.navigate('SettingsScreen') }}
           >
+            <Icon name='settings' size={30} />
             <Text style={globalStyles.menuTexto}>Settings</Text>
           </TouchableOpacity>
 
